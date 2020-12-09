@@ -1,0 +1,1 @@
+https://search.maven.org/classic/remote_content?g=com.madgag&a=bfg&v=LATEST

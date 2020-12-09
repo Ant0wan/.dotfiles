@@ -1,0 +1,16 @@
+_42:
+  active: false
+  recovery: false
+  user: abarthel
+  email: abarthel@student.42.fr
+git:
+  active: true
+  name: Antoine Barthelemy
+  email: abarthel@student.42.fr
+kubernetes:
+  active: true
+  autocompletion: true
+  alias: k
+vim:
+  active: true
+  replace: false
