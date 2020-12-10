@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source yaml
+source assets/yaml
 create_variables "config.yaml"
 # Debug
 #set -x
@@ -14,7 +14,7 @@ then
 	export MAIL # parent shell
 	if [ "${_42_recovery}" = "true" ]
 	then
-		bash ./42recovery.sh
+		bash ./assets/42recovery.sh
 	fi
 	tput setaf 32
 	echo "[+] 42 credentials set."
@@ -61,13 +61,12 @@ if [ "${vim_active}" = "true" ]
 then
 	if [ "${vim_replace}" = "true" ] || ! [ -e ~/.vimrc ]
 	then
-		cp -f ./vimrc ~/.vimrc
+		cp -f ./assets/vimrc ~/.vimrc
 	else
-		cat vimrc | while read -r line
+		cat ./assets/vimrc | while read -r line
 		do
     			if [ -n "$line" ]
     			then
-    				#if ! cat ~/.vimrc | grep "^[^\"]" | grep -qxF "$line" &>/dev/null
     				if ! cat ~/.vimrc | grep -qxF "$line" &>/dev/null
 				then
 					echo "$line" >> ~/.vimrc
