@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 source assets/yaml
 create_variables "config.yaml"
-# Debug
-#set -x
-#parse_yaml "config.yaml"
 
 # 42
 if [ "${_42_active}" = "true" ]
@@ -22,7 +19,7 @@ then
 fi
 
 # Git
-if [ "${git_active}" = "true" ]
+if [ "${git_active}" = "true" ] && command -v git &>/dev/null
 then
 	git config --global user.name "${git_name}"
 	git config --global user.email "${git_email}"
@@ -33,7 +30,7 @@ then
 fi
 
 # Kubernetes
-if [ "${kubernetes_active}" = "true" ]
+if [ "${kubernetes_active}" = "true" ] && command -v kubectl &>/dev/null
 then
 	if [ "${kubernetes_autocompletion}" = "true" ]
 	then
@@ -57,7 +54,7 @@ then
 fi
 
 # Vim
-if [ "${vim_active}" = "true" ]
+if [ "${vim_active}" = "true" ] && command -v vim &>/dev/null
 then
 	if [ "${vim_replace}" = "true" ] || ! [ -e ~/.vimrc ]
 	then
