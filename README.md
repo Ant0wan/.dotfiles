@@ -30,15 +30,40 @@
 
 ## About The Project
 
-TBD
+The `setup.sh` will configure your environment such as:
+
+- adding a custom .vimrc,
+
+- restoring your 42 Network credentials,
+
+- adding kubernetes command line completion,
+
+- adding your Git credentials.
 
 ## Getting Started
 
-TBD
+Before executing `setup.sh`, your preferences need to be set in `config.yaml` file.
+
+Section | Field | Description |
+--- | --- | --- |
+_42 | active | `true`: will add 42 credentials below |
+_42 | recovery | `true`: will execute a script customizing 42 MacOS style |
+_42 | user | `<username>`: your 42 Network login |
+_42 | email | `<email>`: your 42 Network email |
+Git | active | `true`: will execute Git config below |
+Git | name | `<user.name>`: your Git username for git commit |
+Git | email | `<email>`: your Git email for git commit |
+Kubernetes | active | `true`: will execute Kubernetes config below |
+Kubernetes | autocompletion | `true`: will add kubectl bash autocompletion permanently |
+Kubernetes | alias | `<alias>`: add an alias for kubectl with its autocompletion |
+Vim | active | `true`: will execute Vim config below |
+Git | replace | `true`: will replace or add missing line to .vimrc, otherwise it won't change your config |
+
+
 
 ### Prerequisites
 
-TBD
+Only Bash > 4.4.
 
 ## Usage
 
@@ -53,6 +78,9 @@ Use,
 ```shell=
 ./setup.sh
 ```
+
+Done !
+
 
 ## Roadmap
 
