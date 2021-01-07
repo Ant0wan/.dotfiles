@@ -36,7 +36,6 @@ then
 	then
 		if ! cat ~/.bashrc | grep -a "source <(kubectl completion bash)" &> /dev/null
 		then
-			source <(kubectl completion bash) # should be export to the parent shell
 			echo "source <(kubectl completion bash)" >> ~/.bashrc
 			tput setaf 32
 			echo "[+] Kubernetes bash autocompletion set."
@@ -48,8 +47,8 @@ then
 		tput setaf 32
 		echo "[+] Kubectl 'k' alias and its autocompletion set."
 		tput init
-		alias k=kubectl # parent shell ?
-		complete -F __start_kubectl k # parent shell ?
+		echo "alias k=kubectl
+		complete -F __start_kubectl k" >> ~/.bashrc
 	fi
 fi
 
