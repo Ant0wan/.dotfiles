@@ -49,7 +49,7 @@ complete -F __start_kubectl k" >> ~/.${shell}rc
 			tput init
 		fi
 	fi
-	if [ -n "${kubernetes_alias}" ] && ! cat ~/.${shell}rc | grep -a "[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases" &> /dev/null
+	if [ "${kubernetes_alias}" = "true" ] && ! cat ~/.${shell}rc | grep -a "[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases" &> /dev/null
 	then
 		wget https://raw.githubusercontent.com/ahmetb/kubectl-alias/master/.kubectl_aliases -O ~/.kubectl_aliases
 		echo '[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases' >> ~/.${shell}rc

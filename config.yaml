@@ -11,7 +11,7 @@ git:
 kubernetes:
   active: true
   autocompletion: true
-  alias: k
+  alias: true
 vim:
   active: true
   replace: false
