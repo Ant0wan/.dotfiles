@@ -2,6 +2,12 @@
 source assets/yaml
 create_variables "config.yaml"
 
+if ! command -v ${shell} &>/dev/null
+then
+	echo "No shell found!"
+	exit 1
+fi
+
 # 42
 if [ "${_42_active}" = "true" ]
 then
@@ -11,7 +17,7 @@ then
 	export MAIL # parent shell
 	if [ "${_42_recovery}" = "true" ]
 	then
-		bash ./assets/42recovery.sh
+		${shell} ./assets/42recovery.sh
 	fi
 	tput setaf 32
 	echo "[+] 42 credentials set."
@@ -34,21 +40,22 @@ if [ "${kubernetes_active}" = "true" ] && command -v kubectl &>/dev/null
 then
 	if [ "${kubernetes_autocompletion}" = "true" ]
 	then
-		if ! cat ~/.bashrc | grep -a "source <(kubectl completion bash)" &> /dev/null
+		if ! cat ~/.${shell}rc | grep -a "source <(kubectl completion ${shell})" &> /dev/null
 		then
-			echo "source <(kubectl completion bash)" >> ~/.bashrc
+			echo "source <(kubectl completion ${shell})
+complete -F __start_kubectl k" >> ~/.${shell}rc
 			tput setaf 32
-			echo "[+] Kubernetes bash autocompletion set."
+			echo "[+] Kubernetes ${shell} autocompletion set."
 			tput init
 		fi
 	fi
-	if [ -n "${kubernetes_alias}" ]
+	if [ -n "${kubernetes_alias}" ] && ! cat ~/.${shell}rc | grep -a "[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases" &> /dev/null
 	then
+		wget https://raw.githubusercontent.com/ahmetb/kubectl-alias/master/.kubectl_aliases -O ~/.kubectl_aliases
+		echo '[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases' >> ~/.${shell}rc
 		tput setaf 32
-		echo "[+] Kubectl 'k' alias and its autocompletion set."
+		echo "[+] Kubectl aliases and their autocompletion set."
 		tput init
-		echo "alias k=kubectl
-		complete -F __start_kubectl k" >> ~/.bashrc
 	fi
 fi
 
@@ -79,5 +86,18 @@ then
 	fi
 	tput setaf 32
 	echo "[+] Vim config ~/.vimrc set."
+	tput init
+fi
+
+# Zsh_powerlevel10k
+if [ "${zsh_powerlevel10k_active}" = "true" ] && command -v zsh &>/dev/null && command -v git &>/dev/null
+then
+	if ! [ -e ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]
+	then
+		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+		echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
+	fi
+	tput setaf 32
+	echo "[+] Zsh config ~/.zshrc set."
 	tput init
 fi
