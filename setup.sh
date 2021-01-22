@@ -94,6 +94,10 @@ if [ "${zsh_powerlevel10k_active}" = "true" ] && command -v zsh &>/dev/null && c
 then
 	if ! [ -e ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]
 	then
+		git clone --depth=1 https://github.com/romkatv/nerd-fonts.git
+		cd nerd-fonts
+		./build 'Meslo/S/*'
+		./install.sh
 		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 		echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 	fi
