@@ -1,0 +1,8 @@
+# Sweet
+#https://www.gnome-look.org/p/1253385/
+# Candy icons
+#https://www.gnome-look.org/p/1305251/
+
+gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+gsettings set org.gnome.desktop.interface icon-theme "Candy"
+gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
