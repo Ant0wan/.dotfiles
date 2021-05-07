@@ -4,7 +4,7 @@
     <img src="assets/logo.png" alt="Logo" width="90" height="80">
   </a>
 
-  <h1 align="center">Config script</h1>
+  <h1 align="center">Config</h1>
 
   <p align="center">
      Configure environment from yaml file.
