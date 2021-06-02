@@ -90,18 +90,23 @@ then
 fi
 
 # Zsh_powerlevel10k
-if [ "${zsh_powerlevel10k_active}" = "true" ] && command -v zsh &>/dev/null && command -v git &>/dev/null
-then
-	if ! [ -e ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]
-	then
-		git clone --depth=1 https://github.com/romkatv/nerd-fonts.git
-		cd nerd-fonts
-		./build 'Meslo/S/*'
-		./install.sh
-		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-		echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
-	fi
-	tput setaf 32
-	echo "[+] Zsh config ~/.zshrc set."
-	tput init
-fi
+#if [ "${zsh_powerlevel10k_active}" = "true" ] && command -v zsh &>/dev/null && command -v git &>/dev/null
+#then
+#	if ! [ -e ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]
+#	then
+#		git clone --depth=1 https://github.com/romkatv/nerd-fonts.git
+#		cd nerd-fonts
+#		./build 'Meslo/S/*'
+#		./install.sh
+#		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+#		echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
+#	fi
+#	tput setaf 32
+#	echo "[+] Zsh config ~/.zshrc set."
+#	tput init
+#fi
+
+# OhmyBash
+# bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+
+# gnome-tweaks

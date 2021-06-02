@@ -1,4 +1,4 @@
-shell: zsh
+shell: bash
 _42:
   active: false
   recovery: false
@@ -13,8 +13,5 @@ kubernetes:
   autocompletion: true
   alias: true
 vim:
-  active: true
-  replace: false
-zsh_powerlevel10k:
   active: true
   replace: false
