@@ -29,6 +29,7 @@ match ExtraWhitespace /\s\+$/
 "autocmd!
 "autocmd VimEnter * :Vexplore
 "augroup END
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ******* DOC ********
 " Parameters to let g:netrw_browse_split = 4
