@@ -26,10 +26,12 @@ gsettings set org.gnome.desktop.interface icon-theme "Candy-icons"
 
 gsettings set org.gnome.desktop.interface clock-show-weekday 'true'
 
+PROFILE_ID=$(gsettings get org.gnome.Terminal.ProfilesList default | xargs echo)
+
 echo "[legacy]
 theme-variant='dark'
 
-[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+[legacy/profiles:/:${PROFILE_ID}]
 background-color='rgb(0,0,0)'
 foreground-color='rgb(208,207,204)'
 use-system-font=false
