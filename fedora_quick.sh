@@ -16,7 +16,7 @@ sed -i -e 's|user_pref("network.trr.blocklist_cleanup_done".*|user_pref("network
 	-e 's|user_pref("network.trr.custom_uri".*|user_pref("network.trr.custom_uri", "https://doh.42l.fr/dns-query");|g' \
 	-e 's|user_pref("network.trr.mode".*|user_pref("network.trr.mode", 2);|g' \
 	-e 's|user_pref("network.trr.uri".*|user_pref("network.trr.uri", "https://doh.42l.fr/dns-query");|g' \
-	~/.mozilla/firefox/*.default-release/perfs.js
+	$(ls  ~/.mozilla/firefox/*.default-release/prefs.js)
 
 # Gnome Theme
 wget https://github.com/EliverLara/Sweet/releases/download/2.0/Sweet-Dark.tar.xz
