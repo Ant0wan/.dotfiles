@@ -4,6 +4,7 @@ sudo dnf update -y
 
 git config --global user.name "Antoine Barthelemy"
 git config --global email.name antoine@linux.com
+git config --global credential.helper store
 
 # Firefox Add-ons
 wget https://addons.mozilla.org/firefox/downloads/file/3687310/adblocker_ultimate-3.7.10-an+fx.xpi -O /tmp/adblock_ultimate.xpi
