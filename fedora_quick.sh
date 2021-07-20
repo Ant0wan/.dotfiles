@@ -12,6 +12,12 @@ firefox /tmp/adblock_ultimate.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/3803046/ghostery_privacy_ad_blocker-8.5.7-an+fx.xpi -O /tmp/ghostery.xpi
 firefox /tmp/ghostery.xpi
 
+sed -i -e 's|user_pref("network.trr.blocklist_cleanup_done".*|user_pref("network.trr.blocklist_cleanup_done", true);|g' \
+	-e 's|user_pref("network.trr.custom_uri".*|user_pref("network.trr.custom_uri", "https://doh.42l.fr/dns-query");|g' \
+	-e 's|user_pref("network.trr.mode".*|user_pref("network.trr.mode", 2);|g' \
+	-e 's|user_pref("network.trr.uri".*|user_pref("network.trr.uri", "https://doh.42l.fr/dns-query");|g' \
+	~/.mozilla/firefox/*.default-release/perfs.js
+
 # Gnome Theme
 wget https://github.com/EliverLara/Sweet/releases/download/2.0/Sweet-Dark.tar.xz
 tar xvf Sweet-Dark.tar.xz
