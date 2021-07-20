@@ -24,7 +24,13 @@ rm -rf candy-icons/.git candy-icons/README.md
 sudo mv candy-icons /usr/share/icons/
 gsettings set org.gnome.desktop.interface icon-theme "Candy-icons"
 
-gsettings set org.gnome.desktop.interface clock-show-weekday true
+gsettings set org.gnome.desktop.interface clock-show-weekday 'true'
+
+gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
+gsettings set org.gnome.Terminal.Legacy.Profile:/ background-color '#ffffff'
+gsettings set org.gnome.Terminal.Legacy.Profile:/ foreground-color '#171421'
+gsettings set org.gnome.Terminal.Legacy.Profile:/ use-system-font 'false'
+gsettings set org.gnome.Terminal.Legacy.Profile:/ use-theme-colors 'false'
 
 # Bash
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
