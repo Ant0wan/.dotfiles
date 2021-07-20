@@ -53,5 +53,3 @@ wget https://raw.githubusercontent.com/Ant0wan/config/master/assets/vimrc -O ~/.
 # Rust
 wget https://sh.rustup.rs -O /tmp/rust.sh
 bash rust.sh -y
-
-echo https://doh.42l.fr/dns-query
