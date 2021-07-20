@@ -37,12 +37,6 @@ foreground-color='rgb(208,207,204)'
 use-system-font=false
 use-theme-colors=false" | dconf load /org/gnome/terminal/
 
-#gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/ background-color '#ffffff'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/ foreground-color '#171421'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/ use-system-font 'false'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/ use-theme-colors 'false'
-
 # Bash
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 sed -i -e "s/OSH_THEME=.*/OSH_THEME=\"purity\"/g" ~/.bashrc
